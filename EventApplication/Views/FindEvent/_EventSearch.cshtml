@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EventApplication.Models.Event>
+
+<div id="searchresults">
+    <table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                State
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.RouteLink(item.Title, new { controller = "TicketsOrdered", action = "Details", id = item.EventId })
+                </td>
+                <td>
+                    @item.StartDate
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    @item.State
+                </td>
+            </tr>
+        }
+    </table>
+</div>
